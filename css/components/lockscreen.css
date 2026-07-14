@@ -1,0 +1,73 @@
+/* ============================================================
+   鎖屏畫面與點擊防禦樣式 (lockscreen.css)
+   ============================================================ */
+
+/* 當鎖定模式啟用時，強制將鎖屏設定為顯示，避免 JavaScript 載入前的首頁閃爍 */
+html.is-locked #lockScreen {
+    display: flex !important;
+}
+
+/* 最後 10 秒倒數震動與發光加速特效 */
+#lockCircle.shaking {
+    animation: cosmic-flow 10s ease infinite, lock-circle-pulse 1s ease-in-out infinite, lock-shake 1s ease-in-out infinite !important;
+    border-color: rgba(255, 59, 48, 0.4) !important;
+}
+
+#lockCircle.shaking #lockTimer {
+    color: #ff3b30 !important;
+    text-shadow: 0 0 20px rgba(255, 59, 48, 0.9), 0 0 40px rgba(255, 59, 48, 0.5);
+    animation: timer-pop 0.5s ease-in-out infinite alternate !important;
+}
+
+#lockCircle.shaking svg {
+    filter: drop-shadow(0 0 25px rgba(255, 59, 48, 0.85)) !important;
+    stroke: #ff3b30 !important;
+}
+
+@keyframes lock-shake {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-1px, 0.5px) rotate(-0.1deg); }
+    40% { transform: translate(0.8px, -0.5px) rotate(0.1deg); }
+    60% { transform: translate(-0.5px, -0.8px) rotate(-0.05deg); }
+    80% { transform: translate(0.8px, 0.8px) rotate(0.05deg); }
+}
+
+@keyframes timer-pop {
+    from { transform: scale(1); }
+    to { transform: scale(1.06); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* 流動動畫 */
+@keyframes cosmic-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 鎖屏呼吸動畫 */
+@keyframes lock-circle-pulse {
+    0% {
+        border-color: rgba(200, 176, 232, 0.12);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    }
+    50% {
+        border-color: rgba(255, 179, 217, 0.3); /* 溫柔的粉金色微光呼吸 */
+        box-shadow: 0 20px 45px rgba(255, 179, 217, 0.15), inset 0 0 25px rgba(255, 255, 255, 0.04);
+    }
+    100% {
+        border-color: rgba(200, 176, 232, 0.12);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    }
+}
+
+/* 點擊防禦 */
+button, .hex-card, .planet, a, .master-planet, .friend-planet, .trait-box {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}

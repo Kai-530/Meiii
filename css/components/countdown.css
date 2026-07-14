@@ -1,0 +1,45 @@
+/* ============================================================
+   右上角倒數計時框
+   ============================================================ */
+
+/* 倒數計時容器 */
+.countdown-container {
+    position: fixed;
+    top: 60px;
+    right: 60px;
+    z-index: 150;
+    background: rgba(25, 15, 45, 0.85);
+    border: var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--gap-sm) var(--gap-lg);
+    text-align: center;
+    backdrop-filter: blur(15px);
+    min-width: 240px;
+    box-shadow: var(--shadow-sm);
+    transition: opacity 0.4s ease;
+}
+
+/* 倒數標籤：「距離小獅子生日還剩下」 */
+.countdown-label {
+    font-size: var(--font-md); 
+    color: var(--secondary);
+    letter-spacing: 2px;
+    margin-bottom: var(--gap-xs);
+}
+
+/* 倒數數字 */
+.countdown-timer {
+    font-size: var(--font-2xl);
+    font-weight: 900;
+    color: var(--text-white);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* 倒數單位：D、H、M、S */
+.timer-unit {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin: 0 var(--gap-xs);
+}
+
+

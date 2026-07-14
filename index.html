@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>美小莓之日</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo/logo.png">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+    <script>
+        if (window.innerWidth <= 1000) {
+            document.documentElement.classList.add('mobile-mode');
+        }
+        
+        // 同步檢查鎖屏狀態，防止首頁閃爍
+        (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isTest = urlParams.get('test') === 'true' || urlParams.get('bypass') === 'true';
+            const now = new Date();
+            const unlockDate = new Date(2026, 7, 9, 0, 0, 0); // 2026/8/9 00:00
+            if (!isTest && now < unlockDate) {
+                document.documentElement.classList.add('is-locked');
+            }
+        })();
+    </script>
+
+    <div class="mobile-warning">
+        <h2>請使用電腦開啟！</h2>
+        <p>此網站目前僅支援桌面版瀏覽器<br>請使用電腦或筆電觀看完整內容哦~</p>
+    </div>
+
+    <!-- 鎖屏 -->
+    <div id="lockScreen" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(135deg, #0a0e27, #1a1a3e, #0d1117); z-index: 99999; flex-direction: column; align-items: center; justify-content: center; font-family: 'Microsoft YaHei', sans-serif;">
+        <!-- 黑色圓形毛玻璃遮罩 -->
+        <div id="lockCircle" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 560px; height: 560px; border-radius: 50%; background: linear-gradient(135deg, rgba(12, 6, 28, 0.75), rgba(5, 3, 15, 0.6), rgba(30, 10, 48, 0.75)); background-size: 200% 200%; animation: cosmic-flow 10s ease infinite, lock-circle-pulse 4s ease-in-out infinite; backdrop-filter: blur(25px); border: 1px solid rgba(200, 176, 232, 0.15); padding: 40px; box-sizing: border-box; text-align: center; position: relative; overflow: hidden;">
+            <!-- 小星星 -->
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.3; border-radius: 50%; top: 12%; left: 20%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.15; border-radius: 50%; top: 15%; left: 55%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.45; border-radius: 50%; top: 18%; left: 28%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 2px; height: 2px; background: #ffffff; opacity: 0.55; border-radius: 50%; top: 22%; left: 80%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.25; border-radius: 50%; top: 25%; left: 40%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.2; border-radius: 50%; top: 28%; left: 72%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.4; border-radius: 50%; top: 32%; left: 15%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 2px; height: 2px; background: #ffffff; opacity: 0.5; border-radius: 50%; top: 35%; left: 88%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.15; border-radius: 50%; top: 40%; left: 30%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.35; border-radius: 50%; top: 45%; left: 62%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.35; border-radius: 50%; top: 48%; left: 85%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 2px; height: 2px; background: #ffffff; opacity: 0.6; border-radius: 50%; top: 52%; left: 12%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.2; border-radius: 50%; top: 55%; left: 78%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.4; border-radius: 50%; top: 60%; left: 45%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 2px; height: 2px; background: #ffffff; opacity: 0.6; border-radius: 50%; top: 65%; left: 20%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.25; border-radius: 50%; top: 68%; left: 70%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.5; border-radius: 50%; top: 72%; left: 35%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.15; border-radius: 50%; top: 75%; left: 80%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.3; border-radius: 50%; top: 78%; left: 18%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 2px; height: 2px; background: #ffffff; opacity: 0.5; border-radius: 50%; top: 82%; left: 48%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.4; border-radius: 50%; top: 85%; left: 72%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; background: #ffffff; opacity: 0.2; border-radius: 50%; top: 88%; left: 30%; pointer-events: none;"></div>
+            <div style="position: absolute; width: 1.5px; height: 1.5px; background: #ffffff; opacity: 0.3; border-radius: 50%; top: 90%; left: 58%; pointer-events: none;"></div>
+
+
+            <!-- 鬧鐘刻度圈 -->
+            <div style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1;">
+                <!-- 主刻度 0, 3, 6, 9 -->
+                <div style="position: absolute; top: 50%; left: 50%; width: 2px; height: 12px; background: rgba(255, 255, 255, 0.4); border-radius: 1px; transform: translate(-50%, -50%) rotate(0deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 2px; height: 12px; background: rgba(255, 255, 255, 0.4); border-radius: 1px; transform: translate(-50%, -50%) rotate(90deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 2px; height: 12px; background: rgba(255, 255, 255, 0.4); border-radius: 1px; transform: translate(-50%, -50%) rotate(180deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 2px; height: 12px; background: rgba(255, 255, 255, 0.4); border-radius: 1px; transform: translate(-50%, -50%) rotate(270deg) translate(0, -235px);"></div>
+
+                <!-- 次刻度 1, 2, 4, 5, 7, 8, 10, 11 -->
+                <div style="position: absolute; top: 50%; left: 50%; width: 1.5px; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 1px; transform: translate(-50%, -50%) rotate(30deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 1.5px; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 1px; transform: translate(-50%, -50%) rotate(60deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 1.5px; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 1px; transform: translate(-50%, -50%) rotate(120deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 1.5px; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 1px; transform: translate(-50%, -50%) rotate(150deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 1.5px; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 1px; transform: translate(-50%, -50%) rotate(210deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 1.5px; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 1px; transform: translate(-50%, -50%) rotate(240deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 1.5px; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 1px; transform: translate(-50%, -50%) rotate(300deg) translate(0, -235px);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 1.5px; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 1px; transform: translate(-50%, -50%) rotate(330deg) translate(0, -235px);"></div>
+            </div>
+
+            <!-- 鬧鐘指針 -->
+            <div id="clockHourHand" style="position: absolute; bottom: 50%; left: calc(50% - 2.5px); height: 130px; width: 5px; transform-origin: bottom center; border-radius: 5px; background: linear-gradient(to top, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.35) 100%); box-shadow: 0 0 6px rgba(255, 255, 255, 0.08); pointer-events: none; z-index: 2; transition: transform 0.5s cubic-bezier(0.1, 0.8, 0.25, 1); transform: rotate(0deg);"></div>
+            <div id="clockMinHand" style="position: absolute; bottom: 50%; left: calc(50% - 1.5px); height: 180px; width: 3px; transform-origin: bottom center; border-radius: 3px; background: linear-gradient(to top, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.3) 100%); box-shadow: 0 0 6px rgba(255, 255, 255, 0.08); pointer-events: none; z-index: 3; transition: transform 0.5s cubic-bezier(0.1, 0.8, 0.25, 1); transform: rotate(0deg);"></div>
+            
+            <!-- 指針中心蓋 -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, 0.15); pointer-events: none; z-index: 4;"></div>
+
+            <!-- SVG 金色發光鎖頭 -->
+            <svg viewBox="0 0 24 24" width="120" height="120" style="margin-bottom: 25px; filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.45)); z-index: 5;" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" fill="rgba(255, 215, 0, 0.05)"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <div style="font-size: 1.15rem; color: #b0a0c0; margin-bottom: 8px; letter-spacing: 2px; z-index: 5;">距離解鎖時間還剩：</div>
+            <div id="lockTimer" style="font-size: 2.8rem; font-weight: bold; color: #FFD700; margin-bottom: 12px; letter-spacing: 2px; z-index: 5;">00D 00H 00M 00S</div>
+            <div style="font-size: 0.95rem; color: #777; letter-spacing: 1px; z-index: 5;">將於 2026 年 8 月 9 日 00 : 00 解鎖</div>
+        </div>
+    </div>
+
+
+
+    <canvas id="starsCanvas"></canvas>
+    <canvas id="effectCanvas"></canvas>
+
+    <div class="countdown-container" id="countdownBox">
+        <div class="countdown-label">距離小獅子生日還剩下</div>
+        <div id="timer" class="countdown-timer">00D 00H 00M 00S</div>
+    </div>
+
+    <section class="screen active" id="pg1">
+        <div class="home-icon"> 
+            <img src="avatar/MeiMei.png" alt="美莓頭像">
+        </div>
+        <h1 class="home-title">櫻花風美莓拿鐵 #8899</h1>
+        <p class="home-subtitle">HAPPY BIRTHDAY, MEIMEI</p>
+        <button class="btn-main btn-start" onclick="nav(2)">開始咯 !</button>
+    </section>
+
+    <div id="audioControlContainer" style="position: absolute; top: 160px; right: 60px; z-index: 9999; text-align: center;">
+        <button id="speakerBtn" onclick="toggleFirstSound()" style="background: rgba(255,179,217,0.1); border: 2px solid #ff8acb; border-radius: 50%; width: 60px; height: 60px; cursor: pointer; color: #ff8acb; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;">
+            <!-- SVG 播放圖示  -->
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+        </button>
+    </div>
+    
+    <section class="screen" id="pg2">
+        <button class="btn-back" onclick="nav(1)">返回</button>
+        <h1 class="hex-page-title">選擇海克斯</h1>
+        <div class="hex-row" id="hexContainer"></div>
+        <button id="giftSceneBtn" class="btn-main" style="display:none; margin-top: 20px;" onclick="nav(3)">準備許願嚕</button>
+    </section>
+
+    <section class="screen" id="pg3">
+        <button class="btn-back" onclick="nav(2)">返回</button>
+        <div class="cake-container">
+            <div class="cake-os-bubble" id="cakeOsBubble">
+                <div class="os-text">點我可以吹滅蠟燭唷！</div>
+                <div class="os-tail"></div>
+            </div>
+            <div class="cake" id="cakeObj" onclick="blow()">
+                <img src="cake/zoeCake.png" alt="生日蛋糕" style="width: 100%; height: 100%; object-fit: contain;">
+                <div class="flame" id="flame"></div>
+            </div>
+        </div>
+        <h2 id="cakeMsg">許願拉</h2>
+        <button id="nextBtn" class="btn-main" style="display:none;" onclick="nav(4)">美美登陸星球拉</button>
+    </section>
+
+    <section class="screen" id="pg4">
+        <div class="pc-layout">
+
+            <div class="panel">
+                <p class="panel-h">美美小羈絆</p>
+                
+                <div class="trait-box active">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Leo.png" alt="小獅子">
+                        </div>
+                        <div class="trait-name">小獅子</div>
+                    </div>
+                    <div class="trait-number">1/1</div>
+                    <div class="trait-tooltip">小小美莓</div>
+                </div>
+
+                <div class="trait-box silver">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Gemini.png" alt="小雙子">
+                        </div>
+                        <div class="trait-name">小雙子</div>
+                    </div>
+                    <div class="trait-number">1/2</div>
+                    <div class="trait-tooltip">小小黃楷6</div>
+                </div>
+
+                <div class="trait-box">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Libra.png" alt="小天秤">
+                        </div>
+                        <div class="trait-name">小天秤</div>
+                    </div>
+                    <div class="trait-number">1/3</div>
+                    <div class="trait-tooltip">小小邱婉6</div>
+                </div>
+
+                <div class="trait-box">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Pisces.png" alt="小雙魚">
+                        </div>
+                        <div class="trait-name">小雙魚</div>
+                    </div>
+                    <div class="trait-number">1/3</div>
+                    <div class="trait-tooltip">小小是你好</div>
+                </div>
+
+                <div class="trait-box">
+                    <div class="trait-left">
+                        <div class="trait-hex-img">
+                            <svg viewBox="0 0 100 115" width="44" height="44">
+                                <polygon points="50 5, 95 28, 95 72, 50 95, 5 72, 5 28" fill="#1f1540" stroke="var(--primary)" stroke-width="2"/>
+                            </svg>
+                            <img src="zodiac/Virgo.png" alt="小處女">
+                        </div>
+                        <div class="trait-name">小處女</div>
+                    </div>
+                    <div class="trait-number">1/3</div>
+                    <div class="trait-tooltip">小小無奈哥</div>
+                </div>
+
+                <p class="panel-h panel-h-extra">美美海克斯</p>
+                <div id="finalHexDisplay"></div>
+
+                <div style="margin-top: 20px;">
+                    <p class="gift-title">美美小神秘</p>
+                    <div style="text-align: center;">
+                        <div class="gift-section-panel" id="randomGiftPanel" onclick="openRandomGift()">
+                            <div class="gift-box-panel"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galaxy-center" id="galaxy">
+                <div class="master-planet" id="planet" onclick="showMaster()" style="position: relative;">
+                    <img id="masterPlanetImg"
+     src="avatar/MeiMei.png"
+     style="
+        width:140px;
+        height:140px;
+        border-radius:50%;
+        object-fit:cover;
+     ">
+                    <div class="master-name">櫻花風美莓拿鐵</div>
+                </div>
+                <button class="btn-main btn-home-planet" onclick="nav(1); forceRefreshHex()">返回首頁</button>
+            </div>
+
+            <div class="panel">
+                <p class="panel-h">美美吉不吉</p>
+                <div class="fortune-card">
+                    <div class="fortune-flip-card" id="fortuneFlip">
+                        <div class="fortune-face fortune-front">
+                            <div class="fortune-preview">今天運勢如何呢？</div>
+                        </div>
+                        <div class="fortune-face fortune-back" id="fortuneBack">
+    <div class="ball-color" id="ballColor"></div>
+    <div class="ball-text" id="ballText"></div>
+    <div class="fortune-text-group">
+        <div class="ball-message" id="ballMessage"></div>
+    </div>
+</div>
+                    </div>
+                    <button class="lottery-btn" onclick="drawLottery()">翻開今日運勢</button>
+                </div>
+
+                <div class="friends-section">
+                    <p class="panel-h">美美好友列</p>
+                    <div class="friends-list">
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/MeiMei.png" alt="櫻花風美莓拿鐵">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">櫻花風美莓拿鐵</div>
+                            </div>
+                            <div class="friend-tooltip">=))</div>
+                        </div>
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/hkr.png" alt="SerendiPityuu">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">SerendiPityuu</div>
+                            </div>
+                            <div class="friend-tooltip">=)))</div>
+                        </div>
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/qwr.png" alt="生椰抹茶拿鐵">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">生椰抹茶拿鐵</div>
+                            </div>
+                            <div class="friend-tooltip">我超強</div>
+                        </div>
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/wyb.png" alt="專業送頭AD">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">專業送頭AD</div>
+                            </div>
+                            <div class="friend-tooltip">我就爛</div>
+                        </div>
+                        
+                        <div class="friend-item">
+                            <div class="friend-avatar">
+                                <img src="avatar/slh.png" alt="Sihao">
+                                <span class="online-dot"></span>
+                            </div>
+                            <div class="friend-info">
+                                <div class="friend-name">Sihao</div>
+                            </div>
+                            <div class="friend-tooltip">6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="modal" id="modal" onclick="closeAnyModal()">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <h2 id="mTitle" style="color:var(--gold-active);"></h2>
+            <div id="mBody" class="modal-body"></div>
+            <div id="modalBtnArea"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
